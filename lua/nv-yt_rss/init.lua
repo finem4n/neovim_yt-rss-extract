@@ -10,6 +10,5 @@ end
 function M.build ()
   require("nv-yt_rss.build.get_deps").get_deps()
 end
--- M.build = require"build.get_deps")
-M.print_url()
+
 return M
