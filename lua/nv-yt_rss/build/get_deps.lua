@@ -38,7 +38,7 @@ function M.get_deps ()
 
   elseif executability == "False" then
     vim.notify("Updating youtube-rss.sh permissions to be executable", vim.log.levels.INFO)
-    print(script_path)
+    vim.notify(script_path, vim.log.levels.INFO)
     local output = vim.fn.system({'chmod', 'u+x', script_path})
     vim.notify("Setting permissions failed:\n" .. output, vim.log.levels.ERROR)
   end
