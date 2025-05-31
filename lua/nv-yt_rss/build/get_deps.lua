@@ -8,6 +8,21 @@ function M.get_deps ()
     vim.fn.mkdir(gist_dir, "p")
 
     local output = vim.fn.system({ 'git', 'clone', '--depth=1', gist_url, gist_dir })
+
+    if vim.v.shell_error ~= 0 then
+      vim.notify("Gist clone failed:\n" .. output, vim.log.levels.ERROR)
+    else
+      vim.notify("Gist cloned to: " .. gist_dir, vim.log.levels.INFO)
+    end
+
+  else
+    local output = vim.fn.system({ "git", "-C", gist_dir, "pull", "--ff-only" })
+
+    if vim.v.shell_error ~= 0 then
+      vim.notify("Gist pull failed:\n" .. output, vim.log.levels.ERROR)
+    else
+      vim.notify("Gist updated in: " .. gist_dir, vim.log.levels.INFO)
+    end
   end
 end
 
