@@ -5,7 +5,6 @@ local M = {}
 function M.get_deps ()
   local gist_url = "https://gist.github.com/tjluoma/fdbc63ceb78a2aecd3d638fd18b6ec6e"
   local gist_dir = utils.get_plug_path() .. "youtube-rss_gist"
-  -- local gist_dir = vim.fn.stdpath("data") .. "/lazy/neovim_yt-rss-extract/lua/youtube-rss_gist"
 
   if vim.fn.isdirectory(gist_dir) == 0 then
     vim.fn.mkdir(gist_dir, "p")
@@ -26,6 +25,22 @@ function M.get_deps ()
     else
       vim.notify("Gist updated in: " .. gist_dir, vim.log.levels.INFO)
     end
+  end
+
+  local script_path = gist_dir .. "/youtube-rss.sh"
+  local executability_checker = "[ -x " .. script_path .. " ] && echo True || echo False"
+
+  local executability = vim.fn.system(executability_checker)
+  executability = vim.trim(executability) -- remove trailing whitespaces
+
+  if executability == "True" then
+    vim.notify("youtube-rss.sh is executable", vim.log.levels.INFO)
+
+  elseif executability == "False" then
+    vim.notify("Updating youtube-rss.sh permissions to be executable", vim.log.levels.INFO)
+
+    local output = vim.fn.system('chmod', 'u+x', script_path)
+    vim.notify("Setting permissions failed:\n" .. output, vim.log.levels.ERROR) 
   end
 end
 
