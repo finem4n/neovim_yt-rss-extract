@@ -1,8 +1,11 @@
+local utils = require("nv-yt_rss.utils")
+
 local M = {}
 
 function M.get_deps ()
   local gist_url = "https://gist.github.com/tjluoma/fdbc63ceb78a2aecd3d638fd18b6ec6e"
-  local gist_dir = vim.fn.stdpath("data") .. "/lazy/neovim_yt-rss-extract/lua/youtube-rss_gist"
+  local gist_dir = utils.get_plug_path() .. "youtube-rss_gist"
+  -- local gist_dir = vim.fn.stdpath("data") .. "/lazy/neovim_yt-rss-extract/lua/youtube-rss_gist"
 
   if vim.fn.isdirectory(gist_dir) == 0 then
     vim.fn.mkdir(gist_dir, "p")

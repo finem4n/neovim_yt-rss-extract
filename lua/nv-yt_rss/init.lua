@@ -2,8 +2,8 @@ local M = {}
 
 M.ns = vim.api.nvim_create_namespace("nv-yt_rss")
 
-function M.test ()
-  print("hej")
+function M.print_url ()
+  require("nv-yt_rss.rss_wrapper").get_rss()
 end
 
 function M.build ()
