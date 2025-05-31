@@ -3,7 +3,7 @@ local utils = require("nv-yt_rss.utils")
 local M = {}
 
 function M.get_deps ()
-  local gist_url = "https://gist.github.com/tjluoma/fdbc63ceb78a2aecd3d638fd18b6ec6e"
+  local gist_url = "https://gist.github.com/finem4n/5c019905d4ad5f1c9cf49baa481da20a"
   local gist_dir = utils.get_plug_path() .. "youtube-rss_gist"
 
   if vim.fn.isdirectory(gist_dir) == 0 then
