@@ -1,5 +1,5 @@
 # neovim_yt-rss-extract
-A simple Lua wrapper for ~~[youtube-rss.sh](https://gist.github.com/tjluoma/fdbc63ceb78a2aecd3d638fd18b6ec6e)~~ ~~[mine fork of youtube-rss.sh](https://gist.github.com/finem4n/5c019905d4ad5f1c9cf49baa481da20a)~~ to make it easier to update Newsboat's urls file
+A simple Lua wrapper for ~~[youtube-rss.sh](https://gist.github.com/tjluoma/fdbc63ceb78a2aecd3d638fd18b6ec6e)~~ [mine fork of youtube-rss.sh](https://gist.github.com/finem4n/5c019905d4ad5f1c9cf49baa481da20a) to make it easier to update Newsboat's urls file
 
 ## TODOs
 - [ ] rewrite `youtube-rss.sh` in lua
