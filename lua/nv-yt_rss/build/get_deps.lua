@@ -3,6 +3,9 @@ local utils = require("nv-yt_rss.utils")
 local M = {}
 
 function M.get_deps ()
+-- Resources:
+-- https://bash.cyberciti.biz/file-management/find-file-permission-script/
+
   local gist_url = "https://gist.github.com/finem4n/5c019905d4ad5f1c9cf49baa481da20a"
   local gist_dir = utils.get_plug_path() .. "youtube-rss_gist"
 
