@@ -3,8 +3,9 @@ local M = {}
 M.ns = vim.api.nvim_create_namespace("nv-yt_rss")
 
 function M.print_url ()
-  local url = require("nv-yt_rss.rss_wrapper").get_rss("https://www.youtube.com/@kate.cassidy/videos")
-  print(url)
+  local yt_url = vim.fn.input("Paste the YouTube channel URL: ")
+  local rss_url = require("nv-yt_rss.rss_wrapper").get_rss(yt_url)
+  print(rss_url)
 end
 
 function M.build ()
